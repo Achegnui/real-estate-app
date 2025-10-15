@@ -13,10 +13,10 @@ export default function Index() {
       <Text className="text-red-700 font-rubik text-3xl">
         Welcome to the new state
       </Text>
-      <Link href="/sign-in">Sign In</Link>
+      {/* <Link href="/sign-in">Sign In</Link>
       <Link href="/explore">Explore</Link>
       <Link href="/profile">Profile</Link>
-      <Link href="/properties/1">Property</Link>
+      <Link href="/properties/1">Property</Link> */}
     </View>
   );
 }

@@ -23,7 +23,11 @@ export const account = new Account(client);
 
 export async function login() {
   try {
+    if (!config.endpoint || !config.projectId) {
+      throw new Error("Appwrite configuration is missing");
+    }
     const redirectUri = Linking.createURL("/");
+    console.log("Redirect URI:", redirectUri);
 
     const response = await account.createOAuth2Token(
       OAuthProvider.Google,
@@ -67,7 +71,7 @@ export async function logout() {
   }
 }
 
-export async function getUser() {
+export async function getCurrentUser() {
   try {
     const response = await account.get();
     if (response.$id) {
@@ -84,6 +88,6 @@ export async function getUser() {
   }
 }
 
-function openAuthSessionAsync(arg0: string, redirectUri: string) {
-  throw new Error("Function not implemented.");
-}
+// function openAuthSessionAsync(arg0: string, redirectUri: string) {
+//   throw new Error("Function not implemented.");
+// }
